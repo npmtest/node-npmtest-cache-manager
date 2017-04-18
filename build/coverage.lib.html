@@ -1,5 +1,7 @@
-<html lang="en"><head>
-    <title>Code coverage report for node-npmtest-cache-manager/cache-manager/lib/caching.js</title>
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for node-npmtest-cache-manager/node_modules/cache-manager/lib/caching.js</title>
     <meta charset="utf-8">
     <style>
         body, html {
@@ -192,7 +194,7 @@
     <h1 style="font-weight: bold;">
         <a href="https://github.com/npmtest/node-npmtest-cache-manager">npmtest-cache-manager (v0.0.1)</a>
     </h1>
-    <h1>Code coverage report for <span class="entity">node-npmtest-cache-manager/cache-manager/lib/caching.js</span></h1>
+    <h1>Code coverage report for <span class="entity">node-npmtest-cache-manager/node_modules/cache-manager/lib/caching.js</span></h1>
     <h2>
         
         Statements: <span class="metric">5.8% <small>(4 / 69)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
@@ -208,11 +210,11 @@
         
         Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
     </h2>
-    <div class="path"><a href="../../../index.html">All files</a> » <a href="index.html">node-npmtest-cache-manager/cache-manager/lib/</a> » caching.js</div>
+    <div class="path"><a href="../../../../index.html">All files</a> &#187; <a href="index.html">node-npmtest-cache-manager/node_modules/cache-manager/lib/</a> &#187; caching.js</div>
 </div>
 <div class="body">
 <pre><table class="coverage">
-<tbody><tr><td class="line-count">1
+<tr><td class="line-count">1
 2
 3
 4
@@ -616,51 +618,51 @@ var CallbackFiller = require('./callback_filler');
  *   which values should and should not be cached. If the function returns true, it will be
  *   stored in cache. By default it caches everything except undefined.
  */
-var caching = <span class="fstat-no" title="function not covered">function(args) {</span>
-<span class="cstat-no" title="statement not covered">    args = args || {};</span>
-<span class="cstat-no" title="statement not covered">    var self = {};</span>
-<span class="cstat-no" title="statement not covered">    if (typeof args.store === 'object') {</span>
-<span class="cstat-no" title="statement not covered">        if (args.store.create) {</span>
-<span class="cstat-no" title="statement not covered">            self.store = args.store.create(args);</span>
+var caching = <span class="fstat-no" title="function not covered" >function(args) {</span>
+<span class="cstat-no" title="statement not covered" >    args = args || {};</span>
+<span class="cstat-no" title="statement not covered" >    var self = {};</span>
+<span class="cstat-no" title="statement not covered" >    if (typeof args.store === 'object') {</span>
+<span class="cstat-no" title="statement not covered" >        if (args.store.create) {</span>
+<span class="cstat-no" title="statement not covered" >            self.store = args.store.create(args);</span>
         } else {
-<span class="cstat-no" title="statement not covered">            self.store = args.store;</span>
+<span class="cstat-no" title="statement not covered" >            self.store = args.store;</span>
         }
     } else {
-<span class="cstat-no" title="statement not covered">        var storeName = args.store || 'memory';</span>
-<span class="cstat-no" title="statement not covered">        self.store = require('./stores/' + storeName).create(args);</span>
+<span class="cstat-no" title="statement not covered" >        var storeName = args.store || 'memory';</span>
+<span class="cstat-no" title="statement not covered" >        self.store = require('./stores/' + storeName).create(args);</span>
     }
 &nbsp;
     // do we handle a cache error the same as a cache miss?
-<span class="cstat-no" title="statement not covered">    self.ignoreCacheErrors = args.ignoreCacheErrors || false;</span>
+<span class="cstat-no" title="statement not covered" >    self.ignoreCacheErrors = args.ignoreCacheErrors || false;</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered">    var Promise = args.promiseDependency || global.Promise;</span>
+<span class="cstat-no" title="statement not covered" >    var Promise = args.promiseDependency || global.Promise;</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered">    var callbackFiller = new CallbackFiller();</span>
+<span class="cstat-no" title="statement not covered" >    var callbackFiller = new CallbackFiller();</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered">    if (typeof args.isCacheableValue === 'function') {</span>
-<span class="cstat-no" title="statement not covered">        self._isCacheableValue = args.isCacheableValue;</span>
-    } else <span class="cstat-no" title="statement not covered">if (typeof self.store.isCacheableValue === 'function') {</span>
-<span class="cstat-no" title="statement not covered">        self._isCacheableValue = self.store.isCacheableValue;</span>
+<span class="cstat-no" title="statement not covered" >    if (typeof args.isCacheableValue === 'function') {</span>
+<span class="cstat-no" title="statement not covered" >        self._isCacheableValue = args.isCacheableValue;</span>
+    } else <span class="cstat-no" title="statement not covered" >if (typeof self.store.isCacheableValue === 'function') {</span>
+<span class="cstat-no" title="statement not covered" >        self._isCacheableValue = self.store.isCacheableValue;</span>
     } else {
-<span class="cstat-no" title="statement not covered">        self._isCacheableValue = <span class="fstat-no" title="function not covered">function(value) {</span></span>
-<span class="cstat-no" title="statement not covered">            return value !== undefined;</span>
+<span class="cstat-no" title="statement not covered" >        self._isCacheableValue = <span class="fstat-no" title="function not covered" >function(value) {</span></span>
+<span class="cstat-no" title="statement not covered" >            return value !== undefined;</span>
         };
     }
 &nbsp;
-<span class="fstat-no" title="function not covered">    function wrapPromise(key, promise, options) {</span>
-<span class="cstat-no" title="statement not covered">        return new Promise(<span class="fstat-no" title="function not covered">function(resolve, reject) {</span></span>
-<span class="cstat-no" title="statement not covered">            self.wrap(key, <span class="fstat-no" title="function not covered">function(cb) {</span></span>
-<span class="cstat-no" title="statement not covered">                Promise.resolve()</span>
+<span class="fstat-no" title="function not covered" >    function wrapPromise(key, promise, options) {</span>
+<span class="cstat-no" title="statement not covered" >        return new Promise(<span class="fstat-no" title="function not covered" >function(resolve, reject) {</span></span>
+<span class="cstat-no" title="statement not covered" >            self.wrap(key, <span class="fstat-no" title="function not covered" >function(cb) {</span></span>
+<span class="cstat-no" title="statement not covered" >                Promise.resolve()</span>
                 .then(promise)
-                .then(<span class="fstat-no" title="function not covered">function(result) {</span>
-<span class="cstat-no" title="statement not covered">                    cb(null, result);</span>
+                .then(<span class="fstat-no" title="function not covered" >function(result) {</span>
+<span class="cstat-no" title="statement not covered" >                    cb(null, result);</span>
                 })
                 .catch(cb);
-            }, options, <span class="fstat-no" title="function not covered">function(err, result) {</span>
-<span class="cstat-no" title="statement not covered">                if (err) {</span>
-<span class="cstat-no" title="statement not covered">                    return reject(err);</span>
+            }, options, <span class="fstat-no" title="function not covered" >function(err, result) {</span>
+<span class="cstat-no" title="statement not covered" >                if (err) {</span>
+<span class="cstat-no" title="statement not covered" >                    return reject(err);</span>
                 }
-<span class="cstat-no" title="statement not covered">                resolve(result);</span>
+<span class="cstat-no" title="statement not covered" >                resolve(result);</span>
             });
         });
     }
@@ -686,46 +688,46 @@ var caching = <span class="fstat-no" title="function not covered">function(args)
      *       console.log(user);
      *   });
      */
-<span class="cstat-no" title="statement not covered">    self.wrap = <span class="fstat-no" title="function not covered">function(key, work, options, cb) {</span></span>
-<span class="cstat-no" title="statement not covered">        if (typeof options === 'function') {</span>
-<span class="cstat-no" title="statement not covered">            cb = options;</span>
-<span class="cstat-no" title="statement not covered">            options = {};</span>
+<span class="cstat-no" title="statement not covered" >    self.wrap = <span class="fstat-no" title="function not covered" >function(key, work, options, cb) {</span></span>
+<span class="cstat-no" title="statement not covered" >        if (typeof options === 'function') {</span>
+<span class="cstat-no" title="statement not covered" >            cb = options;</span>
+<span class="cstat-no" title="statement not covered" >            options = {};</span>
         }
 &nbsp;
-<span class="cstat-no" title="statement not covered">        if (!cb) {</span>
-<span class="cstat-no" title="statement not covered">            return wrapPromise(key, work, options);</span>
+<span class="cstat-no" title="statement not covered" >        if (!cb) {</span>
+<span class="cstat-no" title="statement not covered" >            return wrapPromise(key, work, options);</span>
         }
 &nbsp;
-<span class="cstat-no" title="statement not covered">        var hasKey = callbackFiller.has(key);</span>
-<span class="cstat-no" title="statement not covered">        callbackFiller.add(key, {cb: cb});</span>
-<span class="cstat-no" title="statement not covered">        if (hasKey) { <span class="cstat-no" title="statement not covered">return; </span>}</span>
+<span class="cstat-no" title="statement not covered" >        var hasKey = callbackFiller.has(key);</span>
+<span class="cstat-no" title="statement not covered" >        callbackFiller.add(key, {cb: cb});</span>
+<span class="cstat-no" title="statement not covered" >        if (hasKey) { <span class="cstat-no" title="statement not covered" >return; </span>}</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered">        self.store.get(key, options, <span class="fstat-no" title="function not covered">function(err, result) {</span></span>
-<span class="cstat-no" title="statement not covered">            if (err &amp;&amp; (!self.ignoreCacheErrors)) {</span>
-<span class="cstat-no" title="statement not covered">                callbackFiller.fill(key, err);</span>
-            } else <span class="cstat-no" title="statement not covered">if (self._isCacheableValue(result)) {</span>
-<span class="cstat-no" title="statement not covered">                callbackFiller.fill(key, null, result);</span>
+<span class="cstat-no" title="statement not covered" >        self.store.get(key, options, <span class="fstat-no" title="function not covered" >function(err, result) {</span></span>
+<span class="cstat-no" title="statement not covered" >            if (err &amp;&amp; (!self.ignoreCacheErrors)) {</span>
+<span class="cstat-no" title="statement not covered" >                callbackFiller.fill(key, err);</span>
+            } else <span class="cstat-no" title="statement not covered" >if (self._isCacheableValue(result)) {</span>
+<span class="cstat-no" title="statement not covered" >                callbackFiller.fill(key, null, result);</span>
             } else {
-<span class="cstat-no" title="statement not covered">                work(<span class="fstat-no" title="function not covered">function(err, data) {</span></span>
-<span class="cstat-no" title="statement not covered">                    if (err) {</span>
-<span class="cstat-no" title="statement not covered">                        callbackFiller.fill(key, err);</span>
-<span class="cstat-no" title="statement not covered">                        return;</span>
+<span class="cstat-no" title="statement not covered" >                work(<span class="fstat-no" title="function not covered" >function(err, data) {</span></span>
+<span class="cstat-no" title="statement not covered" >                    if (err) {</span>
+<span class="cstat-no" title="statement not covered" >                        callbackFiller.fill(key, err);</span>
+<span class="cstat-no" title="statement not covered" >                        return;</span>
                     }
 &nbsp;
-<span class="cstat-no" title="statement not covered">                    if (!self._isCacheableValue(data)) {</span>
-<span class="cstat-no" title="statement not covered">                        callbackFiller.fill(key, null, data);</span>
-<span class="cstat-no" title="statement not covered">                        return;</span>
+<span class="cstat-no" title="statement not covered" >                    if (!self._isCacheableValue(data)) {</span>
+<span class="cstat-no" title="statement not covered" >                        callbackFiller.fill(key, null, data);</span>
+<span class="cstat-no" title="statement not covered" >                        return;</span>
                     }
 &nbsp;
-<span class="cstat-no" title="statement not covered">                    if (options &amp;&amp; typeof options.ttl === 'function') {</span>
-<span class="cstat-no" title="statement not covered">                        options.ttl = options.ttl(data);</span>
+<span class="cstat-no" title="statement not covered" >                    if (options &amp;&amp; typeof options.ttl === 'function') {</span>
+<span class="cstat-no" title="statement not covered" >                        options.ttl = options.ttl(data);</span>
                     }
 &nbsp;
-<span class="cstat-no" title="statement not covered">                    self.store.set(key, data, options, <span class="fstat-no" title="function not covered">function(err) {</span></span>
-<span class="cstat-no" title="statement not covered">                        if (err &amp;&amp; (!self.ignoreCacheErrors)) {</span>
-<span class="cstat-no" title="statement not covered">                            callbackFiller.fill(key, err);</span>
+<span class="cstat-no" title="statement not covered" >                    self.store.set(key, data, options, <span class="fstat-no" title="function not covered" >function(err) {</span></span>
+<span class="cstat-no" title="statement not covered" >                        if (err &amp;&amp; (!self.ignoreCacheErrors)) {</span>
+<span class="cstat-no" title="statement not covered" >                            callbackFiller.fill(key, err);</span>
                         } else {
-<span class="cstat-no" title="statement not covered">                            callbackFiller.fill(key, null, data);</span>
+<span class="cstat-no" title="statement not covered" >                            callbackFiller.fill(key, null, data);</span>
                         }
                     });
                 });
@@ -738,22 +740,22 @@ var caching = <span class="fstat-no" title="function not covered">function(args)
      * @function
      * @name get
      */
-<span class="cstat-no" title="statement not covered">    self.get = self.store.get.bind(self.store);</span>
+<span class="cstat-no" title="statement not covered" >    self.get = self.store.get.bind(self.store);</span>
 &nbsp;
     /**
      * Binds to the underlying store's `set` function.
      * @function
      * @name set
      */
-<span class="cstat-no" title="statement not covered">    self.set = self.store.set.bind(self.store);</span>
+<span class="cstat-no" title="statement not covered" >    self.set = self.store.set.bind(self.store);</span>
 &nbsp;
     /**
      * Binds to the underlying store's `del` function if it exists.
      * @function
      * @name del
      */
-<span class="cstat-no" title="statement not covered">    if (typeof self.store.del === 'function') {</span>
-<span class="cstat-no" title="statement not covered">        self.del = self.store.del.bind(self.store);</span>
+<span class="cstat-no" title="statement not covered" >    if (typeof self.store.del === 'function') {</span>
+<span class="cstat-no" title="statement not covered" >        self.del = self.store.del.bind(self.store);</span>
     }
 &nbsp;
     /**
@@ -761,8 +763,8 @@ var caching = <span class="fstat-no" title="function not covered">function(args)
      * @function
      * @name setex
      */
-<span class="cstat-no" title="statement not covered">    if (typeof self.store.setex === 'function') {</span>
-<span class="cstat-no" title="statement not covered">        self.setex = self.store.setex.bind(self.store);</span>
+<span class="cstat-no" title="statement not covered" >    if (typeof self.store.setex === 'function') {</span>
+<span class="cstat-no" title="statement not covered" >        self.setex = self.store.setex.bind(self.store);</span>
     }
 &nbsp;
     /**
@@ -770,8 +772,8 @@ var caching = <span class="fstat-no" title="function not covered">function(args)
      * @function
      * @name reset
      */
-<span class="cstat-no" title="statement not covered">    if (typeof self.store.reset === 'function') {</span>
-<span class="cstat-no" title="statement not covered">        self.reset = self.store.reset.bind(self.store);</span>
+<span class="cstat-no" title="statement not covered" >    if (typeof self.store.reset === 'function') {</span>
+<span class="cstat-no" title="statement not covered" >        self.reset = self.store.reset.bind(self.store);</span>
     }
 &nbsp;
     /**
@@ -779,8 +781,8 @@ var caching = <span class="fstat-no" title="function not covered">function(args)
      * @function
      * @name keys
      */
-<span class="cstat-no" title="statement not covered">    if (typeof self.store.keys === 'function') {</span>
-<span class="cstat-no" title="statement not covered">        self.keys = self.store.keys.bind(self.store);</span>
+<span class="cstat-no" title="statement not covered" >    if (typeof self.store.keys === 'function') {</span>
+<span class="cstat-no" title="statement not covered" >        self.keys = self.store.keys.bind(self.store);</span>
     }
 &nbsp;
     /**
@@ -788,21 +790,20 @@ var caching = <span class="fstat-no" title="function not covered">function(args)
      * @function
      * @name ttl
      */
-<span class="cstat-no" title="statement not covered">    if (typeof self.store.ttl === 'function') {</span>
-<span class="cstat-no" title="statement not covered">        self.ttl = self.store.ttl.bind(self.store);</span>
+<span class="cstat-no" title="statement not covered" >    if (typeof self.store.ttl === 'function') {</span>
+<span class="cstat-no" title="statement not covered" >        self.ttl = self.store.ttl.bind(self.store);</span>
     }
 &nbsp;
-<span class="cstat-no" title="statement not covered">    return self;</span>
+<span class="cstat-no" title="statement not covered" >    return self;</span>
 };
 &nbsp;
 module.exports = caching;
 &nbsp;
 &nbsp;</pre></td></tr>
-</tbody></table></pre>
+</table></pre>
 </div>
 <div class="footer">
-    <div class="meta">Generated by <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a> at Tue Apr 11 2017 18:51:20 GMT+0000 (UTC)</div>
+    <div class="meta">Generated by <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a> at Tue Apr 18 2017 20:39:18 GMT+0000 (UTC)</div>
 </div>
-
-
-</body></html>
+</body>
+</html>
