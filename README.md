@@ -1,6 +1,6 @@
 # npmtest-cache-manager
 
-#### test coverage for  [cache-manager (v2.4.0)](https://github.com/BryanDonovan/node-cache-manager#readme)  [![npm package](https://img.shields.io/npm/v/npmtest-cache-manager.svg?style=flat-square)](https://www.npmjs.org/package/npmtest-cache-manager) [![travis-ci.org build-status](https://api.travis-ci.org/npmtest/node-npmtest-cache-manager.svg)](https://travis-ci.org/npmtest/node-npmtest-cache-manager)
+#### basic test coverage for  [cache-manager (v2.4.0)](https://github.com/BryanDonovan/node-cache-manager#readme)  [![npm package](https://img.shields.io/npm/v/npmtest-cache-manager.svg?style=flat-square)](https://www.npmjs.org/package/npmtest-cache-manager) [![travis-ci.org build-status](https://api.travis-ci.org/npmtest/node-npmtest-cache-manager.svg)](https://travis-ci.org/npmtest/node-npmtest-cache-manager)
 
 #### Cache module for Node.js
 
@@ -10,7 +10,7 @@
 |--:|:--|
 | coverage : | [![istanbul-coverage](https://npmtest.github.io/node-npmtest-cache-manager/build/coverage.badge.svg)](https://npmtest.github.io/node-npmtest-cache-manager/build/coverage.html/index.html)|
 | test-report : | [![test-report](https://npmtest.github.io/node-npmtest-cache-manager/build/test-report.badge.svg)](https://npmtest.github.io/node-npmtest-cache-manager/build/test-report.html)|
-| build-artifacts : | [![build-artifacts](https://npmtest.github.io/node-npmtest-cache-manager/glyphicons_144_folder_open.png)](https://github.com/npmtest/node-npmtest-cache-manager/tree/gh-pages/build)|
+| test-server-github : | [![github.com test-server](https://npmtest.github.io/node-npmtest-cache-manager/GitHub-Mark-32px.png)](https://npmtest.github.io/node-npmtest-cache-manager/build/app/index.html) | | build-artifacts : | [![build-artifacts](https://npmtest.github.io/node-npmtest-cache-manager/glyphicons_144_folder_open.png)](https://github.com/npmtest/node-npmtest-cache-manager/tree/gh-pages/build)|
 
 - [https://npmtest.github.io/node-npmtest-cache-manager/build/coverage.html/index.html](https://npmtest.github.io/node-npmtest-cache-manager/build/coverage.html/index.html)
 
@@ -87,7 +87,8 @@
     "scripts": {
         "test": "make"
     },
-    "version": "2.4.0"
+    "version": "2.4.0",
+    "bin": {}
 }
 ```
 
